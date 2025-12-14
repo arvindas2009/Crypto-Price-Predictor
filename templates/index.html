@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Zephyrus</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="stylesheet" href="../static/styles.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="#home" class="navbar-brand">
+          TEAM ZEPHYRUS
+        </a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="navbar-menu" id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#predictor">Predictor</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <!-- Home Section -->
+      <section id="home">
+        <div class="container">
+          <div class="header">
+            <h1>CRYPTO PRICE PREDICTOR</h1>
+            <p>AI-powered predictions for tomorrow's price movements</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Predictor Section -->
+      <section id="predictor">
+        <div class="container">
+          <div class="input-section">
+            <div class="input-group">
+              <input
+                type="text"
+                id="symbolInput"
+                placeholder="Enter crypto symbol (e.g., ETH-INR)"
+              />
+              <button id="predictBtn" onclick="predict()">Predict</button>
+            </div>
+            <div class="examples">
+              Try:
+              <span onclick="setSymbol('BTC-USD')">BTC-USD</span>
+              <span onclick="setSymbol('ETH-USD')">ETH-USD</span>
+              <span onclick="setSymbol('ADA-USD')">ADA-USD</span>
+              <span onclick="setSymbol('SOL-USD')">SOL-USD</span>
+            </div>
+          </div>
+
+          <div class="error" id="error"></div>
+
+          <div class="loading" id="loading">
+            <p>Analyzing data and training model...</p>
+          </div>
+
+          <div class="results" id="results">
+            <div class="prediction-card" data-aos="fade-down">
+              <h2 style="color: #6b7280; margin-bottom: 10px">
+                Tomorrow's Prediction for <span id="symbolName"></span>
+              </h2>
+              <div class="prediction-main" id="predictionText"></div>
+              <div class="confidence" id="confidenceText"></div>
+
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-label">Current Price</div>
+                  <div class="stat-value" id="currentPrice"></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Model Accuracy</div>
+                  <div class="stat-value" id="accuracy"></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Train ROC Score</div>
+                  <div class="stat-value" id="rocScore"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts" data-aos="fade-up">
+              <h2>Analysis Dashboard</h2>
+              <img id="chartImage" src="" alt="Analysis Charts" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section id="team">
+        <div class="container">
+          <h2 class="section-title" data-aos="zoom-in-down">Meet Our Team</h2>
+          <p class="section-subtitle" data-aos="zoom-in-up" data-aos-duration="500">Team Members of Zephyrus from Bright Riders School, Abu Dhabi</p>
+          
+          <div class="team-grid" data-aos="zoom-out-up">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+              <div class="member-avatar">A</div>
+              <h3 class="member-name">Arvin Das</h3>
+              <p class="member-role">Certified in Data Science and Machine Learning</p>
+              <p class="member-role" style="font-weight: 200 !important;">Grade 11</p>
+              <p class="member-bio">
+                Specializes in Supervised Machine Learning and also a Full Stack Developer. 
+                Led the development of the models with expertise in data preprocessing, 
+                feature engineering, and model evaluation to ensure high prediction accuracy.
+              </p>
+              <div class="member-social">
+                <a href="https://www.linkedin.com/in/arvindas2009/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:arvindas2k9@gmail.com" aria-label="Gmail"><i class="fa fa-envelope"></i></a>
+              </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+              <div class="member-avatar">K</div>
+              <h3 class="member-name">Kanish Kannan Srinivasan</h3>
+              <p class="member-role">Creative Head</p>
+              <p class="member-role" style="font-weight: 200 !important;">Grade 11</p>
+              <p class="member-bio">
+                Specializes in web development and provided Front-End Design. Handled the web technologies, built the API integration that connects the ML model with the web application.
+              </p>
+              <div class="member-social">
+                <a href="mailto:kanishkannansrinivasan@gmail.com" aria-label="Gmail"><i class="fa fa-envelope"></i></a>
+              </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+              <div class="member-avatar">R</div>
+              <h3 class="member-name">Muhammed Riswan Navas</h3>
+              <p class="member-role">Analyst</p>
+              <p class="member-role" style="font-weight: 200 !important;">Grade 11</p>
+              <p class="member-bio">
+                Gave information for financial markets with knowledge in technical indicators. 
+                Designed our feature engineering pipeline including RSI, Bollinger Bands, 
+                and momentum indicators.
+              </p>
+              <div class="member-social">
+                <a href="mailto:muhammedriswannavas@gmail.com" aria-label="Gmail"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="../static/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
